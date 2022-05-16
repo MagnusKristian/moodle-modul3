@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "returverdi-oppgave1", "returverdi-oppgave1.csproj", "{3F20A968-61F1-42BA-8270-048A2150D08D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F20A968-61F1-42BA-8270-048A2150D08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F20A968-61F1-42BA-8270-048A2150D08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F20A968-61F1-42BA-8270-048A2150D08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F20A968-61F1-42BA-8270-048A2150D08D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67844F04-1860-4D08-9250-145EBD29CDA6}
+	EndGlobalSection
+EndGlobal
