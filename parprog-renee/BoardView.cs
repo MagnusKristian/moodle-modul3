@@ -8,6 +8,13 @@ namespace parprog_renee
         {
             var brettmodell = new BoardModel();
 
+            GameRunning(brettmodell);
+        }
+
+
+
+        private static void GameRunning(BoardModel brettmodell)
+        {
             while (true)
             {
                 ShowBoard(brettmodell);
@@ -15,19 +22,18 @@ namespace parprog_renee
                 string userinput = Console.ReadLine();
                 UpdateBoard(userinput, brettmodell);
             }
-            //ShowBoard(brettmodell);
-
-            //string userinput = Console.ReadLine();
-            //UpdateBoard(userinput, brettmodell);
-
-            //Console.WriteLine("X's Turn, Enter something: ");
-            //string xInput = Console.ReadLine();
-            //Console.WriteLine("O's Turn, Enter something: ");
-            //string oInput = Console.ReadLine();
-
-            
-
         }
+
+
+        //ShowBoard(brettmodell);
+
+        //string userinput = Console.ReadLine();
+        //UpdateBoard(userinput, brettmodell);
+
+        //Console.WriteLine("X's Turn, Enter something: ");
+        //string xInput = Console.ReadLine();
+        //Console.WriteLine("O's Turn, Enter something: ");
+        //string oInput = Console.ReadLine();
 
         private static void UpdateBoard(string userinput, BoardModel brettmodell)
         {
@@ -86,6 +92,7 @@ namespace parprog_renee
         private static void ShowBoard(BoardModel brettmodell)
         {
             Console.Clear();
+            Console.WriteLine("SKRIV INN HVOR DU VIL SETTE KRYSS, FEKS \"a1\"");
             Console.WriteLine($"  a b c");
             Console.WriteLine($" ┌─────┐");
             Console.WriteLine($"1│{brettmodell.a1} {brettmodell.b1} {brettmodell.c1}│");

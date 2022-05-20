@@ -1,10 +1,11 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace parprog_renee
 {
     public class BoardModel
     {
-        
+        private static readonly Random _random = new Random();
 
          public string a1 = " ";
          public string a2 = " ";
@@ -16,6 +17,22 @@ namespace parprog_renee
          public string c2 = " ";
          public string c3 = " ";
 
+        internal static void SetRandomCircle(BoardModel brettmodell)
+        {
+            int randomNumber =_random.Next(1,10);
+
+            switch (randomNumber)
+            {
+                case 1:
+                    Console.WriteLine($"COMPUTER CHOSE: {randomNumber}, which is 'a1'");
+                    brettmodell.a1 = "O";
+                    BoardView.ShowBoard(brettmodell);
+                    break;
+            }
+
+                
+
+        }
     }
 }
 
@@ -51,6 +68,7 @@ while (true)
 Thread.Sleep(2000);
 boardModel.SetRandomCircle();
 For å få til det lager du en objektvariabel private readonly Random _random = new Random(); i klassen BoardModel.
+-LAG EN METODE SOM GIR DEG 9 RANDOM TALL-
 Med den kan du få et tilfeldig tall som er min. f.eks. 5 og maks. 15 slik: var randomNumber = _random.Next(5, 15);
 
 6. Gjør ferdig det som mangler. Man skal bare kunne sette kryss i en tom rute. Programmet skal kjenne igjen om noen har vunnet,
