@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace parprog_renee
 {
@@ -21,6 +22,8 @@ namespace parprog_renee
 
                 string userinput = Console.ReadLine();
                 UpdateBoard(userinput, brettmodell);
+                Thread.Sleep(2000);
+                BoardModel.SetRandomCircle(brettmodell);
             }
         }
 
@@ -89,7 +92,7 @@ namespace parprog_renee
             }
         }
 
-        private static void ShowBoard(BoardModel brettmodell)
+        public static void ShowBoard(BoardModel brettmodell)
         {
             Console.Clear();
             Console.WriteLine("SKRIV INN HVOR DU VIL SETTE KRYSS, FEKS \"a1\"");
@@ -133,9 +136,12 @@ while (true)
     var position = Console.ReadLine();
     boardModel.SetCross(position);
 }
+
+
 5. Legg til koden under i slutten av while-løkken og lag metoden SetRandomCircle i BoardModel slik at den setter en sirkel en tilfeldig valgt rute.
 Thread.Sleep(2000);
 boardModel.SetRandomCircle();
+
 For å få til det lager du en objektvariabel private readonly Random _random = new Random(); i klassen BoardModel.
 Med den kan du få et tilfeldig tall som er min. f.eks. 5 og maks. 15 slik: var randomNumber = _random.Next(5, 15);
 
