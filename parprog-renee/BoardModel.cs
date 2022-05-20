@@ -4,15 +4,17 @@ namespace parprog_renee
 {
     public class BoardModel
     {
-         private string a1 = "";
-         private string a2 = "";
-         private string a3 = "";
-         private string b1 = "";
-         private string b2 = "";
-         private string b3 = "";
-         private string c1 = "";
-         private string c2 = "";
-         private string c3 = "";
+        
+
+         public string a1 = " ";
+         public string a2 = " ";
+         public string a3 = " ";
+         public string b1 = " ";
+         public string b2 = " ";
+         public string b3 = " ";
+         public string c1 = " ";
+         public string c2 = " ";
+         public string c3 = " ";
 
     }
 }

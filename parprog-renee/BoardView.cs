@@ -6,12 +6,91 @@ namespace parprog_renee
     {
         public static void Show()
         {
-            var brettmodell = new BoardModel()
+            var brettmodell = new BoardModel();
+
+            while (true)
+            {
+                ShowBoard(brettmodell);
+
+                string userinput = Console.ReadLine();
+                UpdateBoard(userinput, brettmodell);
+            }
+            //ShowBoard(brettmodell);
+
+            //string userinput = Console.ReadLine();
+            //UpdateBoard(userinput, brettmodell);
+
+            //Console.WriteLine("X's Turn, Enter something: ");
+            //string xInput = Console.ReadLine();
+            //Console.WriteLine("O's Turn, Enter something: ");
+            //string oInput = Console.ReadLine();
+
+            
+
+        }
+
+        private static void UpdateBoard(string userinput, BoardModel brettmodell)
+        {
+            switch (userinput)
+            {
+                case "a1":
+                    Console.WriteLine("YOU CHOSE A1");
+                    brettmodell.a1 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "a2":
+                    Console.WriteLine("YOU CHOSE A2");
+                    brettmodell.a2 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "a3":
+                    Console.WriteLine("YOU CHOSE A3");
+                    brettmodell.a3 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "b1":
+                    Console.WriteLine("YOU CHOSE B1");
+                    brettmodell.b1 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "b2":
+                    Console.WriteLine("YOU CHOSE B2");
+                    brettmodell.b2 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "b3":
+                    Console.WriteLine("YOU CHOSE B3");
+                    brettmodell.b3 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "c1":
+                    Console.WriteLine("YOU CHOSE C1");
+                    brettmodell.c1 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "c2":
+                    Console.WriteLine("YOU CHOSE C2");
+                    brettmodell.c2 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                case "c3":
+                    Console.WriteLine("YOU CHOSE C3");
+                    brettmodell.c3 = "X";
+                    ShowBoard(brettmodell);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private static void ShowBoard(BoardModel brettmodell)
+        {
+            Console.Clear();
             Console.WriteLine($"  a b c");
             Console.WriteLine($" ┌─────┐");
-            Console.WriteLine($"1│{brettmodell.a1}{b1}{c1}    │");
-            Console.WriteLine($"2│{a1}{b1}{c1}    │");
-            Console.WriteLine($"3│{a1}{b1}{c1}    │");
+            Console.WriteLine($"1│{brettmodell.a1} {brettmodell.b1} {brettmodell.c1}│");
+            Console.WriteLine($"2│{brettmodell.a2} {brettmodell.b2} {brettmodell.c2}│");
+            Console.WriteLine($"3│{brettmodell.a3} {brettmodell.b3} {brettmodell.c3}│");
             Console.WriteLine($" └─────┘");
         }
     }
