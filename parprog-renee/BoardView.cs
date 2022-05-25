@@ -9,13 +9,6 @@ namespace parprog_renee
         {
             var brettmodell = new BoardModel();
 
-            GameRunning(brettmodell);
-        }
-
-
-
-        private static void GameRunning(BoardModel brettmodell)
-        {
             while (true)
             {
                 ShowBoard(brettmodell);
@@ -25,7 +18,11 @@ namespace parprog_renee
                 Thread.Sleep(2000);
                 BoardModel.SetRandomCircle(brettmodell);
             }
+
         }
+
+
+
 
 
         //ShowBoard(brettmodell);
@@ -115,27 +112,8 @@ namespace parprog_renee
 
 
 /*
- 1. Lag en klasse BoardView med en static metode Show(), som viser det hardkodede brettet under. (Kopier gjerne tegnene direkte fra eksempelet under.) Kall så denne fra Main() i Program.
-  a b c
- ┌─────┐
-1│o    │
-2│    o│
-3│× ×  │
- └─────┘
-2. Lag så en klasse BoardModel slik at et objekt av denne kan inneholde informasjon om hvilke ruter som er tomme, hvilke som har kryss og sirkel i seg. 
 
-3. Endre så metoden Show i BoardView, slik at den tar et objekt av BoardModel som parameter og viser frem innholdet dynamisk. Altså samme brett som før,
-men kryss der modell-objekter sier det er kryss - og tilsvarende for sirkler. Lag et test-objekt av BoardModel som inneholder både noen sirkler og noen kryss. 
 
-4. Endre koden i Main til dette og få det til å virke, slik at man kan sette kryss der man vil ved å skrive en bokstav for kolonne og et siffer for rad.
-var boardModel = new BoardModel();
-while (true)
-{
-    BoardView.Show(boardModel);
-    Console.Write("Skriv inn hvor du vil sette kryss (f.eks. \"a2\"): ");
-    var position = Console.ReadLine();
-    boardModel.SetCross(position);
-}
 
 
 5. Legg til koden under i slutten av while-løkken og lag metoden SetRandomCircle i BoardModel slik at den setter en sirkel en tilfeldig valgt rute.
