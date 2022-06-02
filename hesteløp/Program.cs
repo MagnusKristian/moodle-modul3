@@ -17,6 +17,7 @@ namespace hesteløp
             stall.Add(horse2);
             stall.Add(horse3);
             Console.WriteLine(stall.Count);
+            Console.WriteLine(stall[0].name); //regner med at det var dette du tenkte på tidligere?
 
         }
 
