@@ -20,34 +20,48 @@ namespace SocialMedia
             Everyone.Add(person4);
             Everyone.Add(person5);
 
+            while (true)
+            {
+                UserInterface.Interface();
+                UserInterface.InterfaceInput(Everyone, person1);
+            }
+            
+
+            person1.PrintUserInfo();
+
+
+            Console.WriteLine("Add a friend? type their ID here: ");
+            string userInput = Console.ReadLine();
+            person1.AddFriend(Everyone,userInput);
+
             //People.Add(person2);
             //People.Add(person3);
             //People.Add(person4);
             //People.Add(person5);
 
             //gi roger et par venner: 
-            person2.Friends.Add(person1);
-            person2.Friends.Add(person3);
+            //person2.Friends.Add(person1);
+            //person2.Friends.Add(person3);
 
-            person1.AddFriend(Everyone);
-            var i = 1;
-            foreach (var peeps in Everyone)
-            {
+            //person1.AddFriend(Everyone);
+            //var i = 1;
+            //foreach (var peeps in Everyone)
+            //{
                 
-                Console.WriteLine($"Name: {peeps.Name}. Age: {peeps.Age}. ID: {peeps.Id}.");
-                Console.WriteLine($"{peeps.Name}'s friends: ");
-                for (var j = 0; j < peeps.Friends.Count; j++)
-                {
-                    Console.WriteLine($"{peeps.Friends[j].Name}");
-                }
-                //foreach (var friend in peeps.Friends)
-                //{i++;
-                //    Console.WriteLine($"This persons friends: {peeps.Friends[0].Name}");
-                //}
+            //    Console.WriteLine($"Name: {peeps.Name}. Age: {peeps.Age}. ID: {peeps.Id}.");
+            //    Console.WriteLine($"{peeps.Name}'s friends: ");
+            //    for (var j = 0; j < peeps.Friends.Count; j++)
+            //    {
+            //        Console.WriteLine($"{peeps.Friends[j].Name}");
+            //    }
+            //    //foreach (var friend in peeps.Friends)
+            //    //{i++;
+            //    //    Console.WriteLine($"This persons friends: {peeps.Friends[0].Name}");
+            //    //}
 
-                Console.WriteLine($"-----------");
-                //Console.WriteLine($"Friends: {peeps.Friends[i].Name}");
-            }
+            //    Console.WriteLine($"-----------");
+            //    //Console.WriteLine($"Friends: {peeps.Friends[i].Name}");
+            //}
 
             person1.PrintUserInfo();
         }

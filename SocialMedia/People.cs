@@ -10,6 +10,7 @@ namespace SocialMedia
         public int Id { get; private set; } = 1;
         public string Name { get; private set; }
         public int Age { get; private set; }
+        public static int Counter { get; private set; }
 
         public List<Person> Friends { get; private set; }
         public Person(string _name, int _age)
@@ -17,31 +18,38 @@ namespace SocialMedia
             Name = _name;
             Age = _age;
             Friends = new List<Person>();
-            Id++;
-            //UpIdCount();
+            
+            UpIdCount();
         }
 
+        //upper count på id så hver gang constructor kalles, så går den opp med en,
+        //slik at hver nye person får en unik id automatisk.
         private void UpIdCount()
         {
-            Id++;
+            Counter++;
+            Id = Counter;
         }
 
-        public void AddFriend(List<Person> everyone)
+        //legger til venn
+        public void AddFriend(List<Person> everyone, string userinput)
         {
+            int venneId = Convert.ToInt32(userinput);
+            Friends.Add(everyone[venneId]);
+            Console.WriteLine($"{everyone[venneId].Name} was added to {Name}'s friendList.");
 
-            Friends.Add(everyone[1]);
-            Console.WriteLine($"{everyone[1].Name} was added to {Name}'s friendList.");
-            Friends.Add(everyone[2]);
-            Console.WriteLine($"{everyone[2].Name} was added to {Name}'s friendList.");
-            Friends.Add(everyone[3]);
-            Console.WriteLine($"{everyone[3].Name} was added to {Name}'s friendList.");
+            //Friends.Add(everyone[2]);
+            //Console.WriteLine($"{everyone[2].Name} was added to {Name}'s friendList.");
+            //Friends.Add(everyone[3]);
+            //Console.WriteLine($"{everyone[3].Name} was added to {Name}'s friendList.");
         }
 
+        //fjerner venn
         public void RemoveFriend()
         {
 
         }
 
+        //printer profilinformasjon til brukeren.
         public void PrintUserInfo()
         {
             Console.WriteLine($" ********************");
@@ -52,8 +60,13 @@ namespace SocialMedia
             Console.WriteLine($" *                  *");
             Console.WriteLine($" *{"ID: ".PadLeft(9)}{Id}{"*".PadLeft(9)}");
             Console.WriteLine($" *                  *");
-            Console.WriteLine($" *                  *");
+            Console.WriteLine($" * No of friends: {Friends.Count}*");
             Console.WriteLine($" ********************");
+
+        }
+
+        public void ShowFriends()
+        {
 
         }
     }
