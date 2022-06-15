@@ -9,21 +9,34 @@ namespace CSGO_MAGNUS
     internal class CounterTerrorist : Player
     {
 
-        public void DefuseBomb() { }
+        public void DefuseBomb()
+        {
+            //bruker 5 tidsenheter på å fullføre.
+            // alle t må være døde før den kan kalles
+            // hvis den rekker å bli ferdig før den sprenger så vinner CT
 
+            Console.WriteLine($"'DefuseBomb()' kjørte, og '{Name}' kjørte den.");
+        }
+
+        public CounterTerrorist()
+        {
+            
+        }
+        public CounterTerrorist(string name)
+        {
+            Name = name;
+        }
+
+        
         public void KillTerrorist(Terrorist terrorist, bool successful)
         {
+            Console.WriteLine($"'KillTerrorist()' kjørte på '{terrorist}', og '{Name}' kjørte den. Successful?: {successful}");
             if (successful == true)
             {
                 terrorist.IsDead = true;
             }
+            
         }
 
-
-        //public void KillTerrorist(Terrorist terrorist) /*IsSuccessful(SuccessRate)*/ { }
-
-
-        //public void IsSuccessful(SuccessRate) {}
-        //public void DefuseBomb() { }
     }
 }

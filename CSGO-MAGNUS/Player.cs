@@ -8,13 +8,27 @@ namespace CSGO_MAGNUS
 {
     internal class Player
     {
+        public string Name { get; set; } = "Unknown player";
         public bool IsDead { get; set; }
-        public int SuccessRate = 5;
+        public static int SuccessRateCT = 5;
+        public static int SuccessRateT = 5;
+        public static bool BombIsPlanted = false;
         public Guid Id { get; set; }
 
         public Player()
         {
             Id = Guid.NewGuid();
+        }
+
+        public static void ChangeSuccessRateCT(int successRate)
+        {
+            SuccessRateCT = successRate;
+
+        }
+
+        public static void ChangeSuccessRateT(int successRate)
+        {
+            SuccessRateT = successRate;
         }
 
         public static bool IsSuccessful(int maxValue)
