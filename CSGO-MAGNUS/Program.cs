@@ -48,6 +48,7 @@ namespace CSGO_MAGNUS
             
             //terrorist1.KillCounterTerrorist(ctListe[0], Player.IsSuccessful(7));
             
+            Console.WriteLine("GAME OVER");
         }
         //stop main.
       
@@ -109,9 +110,11 @@ namespace CSGO_MAGNUS
                 //T prøver å plante bomba.
                 foreach (Terrorist terrorist in terrorists)
                 {
-                    terrorist.FindBombSite(Player.IsSuccessful(10));   
+                    terrorist.FindBombSite(Player.IsSuccessful(10));
+                    if (GameIsRunning == false) { return; } //her tenker jeg den er grei å ha.
                 }
-                /*Ekstra sjekk bare for å være sikker.*/if(Player.BombIsPlanted){return;}
+                /*Ekstra sjekk bare for å være sikker.*/ //if(Player.BombIsPlanted){return;}
+                /*Ekstra sjekk bare for å være sikker.*/ if (GameIsRunning == false) { return; }
                 //CT metoder for å kille motstander
                 int nextPlayerT = 0;
                 foreach (CounterTerrorist counterTerrorist in counterTerrorists)
