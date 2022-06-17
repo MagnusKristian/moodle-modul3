@@ -8,80 +8,118 @@ namespace passordgenerator
         static void Main(string[] args)
         {
             //PARAMETER: 14, lLssdd
-
             int convertedArgument1 = Convert.ToInt32(args[0]);
+            var rnd = new Random();
 
             //pattern på kommandolinjeparameter.
             string pattern = args[1];
             pattern = pattern.PadRight(convertedArgument1, 'l');
             Console.WriteLine(pattern);
+            Console.WriteLine("-------");
 
+
+            char[] randomCharS = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+
+            char[] randomCharL = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+            string[] randomSpecial = { "+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^", "~", "*", "?", ":", "@", "£", "$", ",", "=", ".", "/"};
+
+            int[] randomInt = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
 
             string password = "";
 
+           
+            //--------------------------------------------------------------
+
+            //HER STARTER KODEN: 
+            //
+            isValid(args); // Denne returnerer true/false etter den har sjekka alle metodene som også er enten true eller false.
+            if (isValid(args) == false) // Her sjekker den isValid om den er true eller false og enten printer error og stopper hvis false, hvis true så kjører den KANSKJE resten av koden.
+            {
+                printError();
+                Console.WriteLine("Fail...");
+            }
+            promptForUser(); //Denne printer ut til konsollen "InfoTeksten".
+            Console.WriteLine("-----------");
+            Console.WriteLine("Here is your password: ");
+            Console.WriteLine();
+            SetPasswordForEachArg(args, password, rnd, randomCharS, randomCharL, randomSpecial, randomInt, convertedArgument1); //denne er det som faktisk setter passordet osv.
+            
+            
+        }
+
+
+        //metoder herifra og nedover.
+
+
+        private static void SetPasswordForEachArg(string[] args, string password, Random rnd, char[] randomCharS,
+            char[] randomCharL, string[] randomSpecial, int[] randomInt, int convertedArgument1)
+        {
             foreach (var character in args[1])
             {
-                
                 switch (character)
                 {
                     case 'l':
                         Console.WriteLine("liten 'l'");
-                        password += "XXX"+MetodeForl();
+                        password += MetodeForl(rnd, randomCharS);
+                        Console.WriteLine($"Passordet er: {password} ---- ETTER LITEN l");
                         break;
                     case 'L':
                         Console.WriteLine("Stor 'L'");
-                        password += "'L'";
+                        password += MetodeForL(rnd, randomCharL);
+                        Console.WriteLine($"Passordet er: {password} ---- ETTER STOR L");
                         break;
                     case 's':
                         Console.WriteLine("'s'");
-                        password += "'s'";
+                        password += MetodeFors(rnd, randomSpecial);
+                        Console.WriteLine($"Passordet er: {password} ---- ETTER S");
                         break;
                     case 'd':
                         Console.WriteLine("'d'");
-                        password += "'d'";
+                        password += MetodeFord(rnd, randomInt);
+                        Console.WriteLine($"Passordet er: {password} ---- ETTER D");
+                        break;
+                    default:
                         break;
                 }
             }
-            Console.WriteLine("Før padding: "+password);
-            password = password.PadRight(convertedArgument1+20, 'l');
-            Console.WriteLine("Etter padding: "+password);
-            //--------------------------------------------------------------
 
-            //HER STARTER KODEN: 
-            // 
-            //promptForUser(); //Denne printer ut til konsollen "InfoTeksten".
-
-            //isValid(args); // Denne returnerer true/false etter den har sjekka alle metodene som også er enten true eller false.
-
-            //if (isValid(args) == false) // Her sjekker den isValid om den er true eller false og enten printer error og stopper hvis false, hvis true så kjører den KANSKJE resten av koden.
-            //{
-            //    printError();
-            //    Console.WriteLine("Fail...");
-            //    return;
-            //}
-
-            //KANSKJE BARE KJØRE RESTEN AV KODEN HER??
-
-
-            //else
-            //{
-            //    Console.WriteLine("suksess");
-            //}
-
-            //Console.WriteLine("slutten av main");
+            Console.WriteLine("Før padding: " + password);
+            password = password.PadRight(convertedArgument1 + 20, 'l');
+            Console.WriteLine("Etter padding: " + password);
         }
-        //---------------------------------------------------------- 
 
-
-        private static char MetodeForl()
+        //for l
+        public static char MetodeForl(Random Rnd, char[] RandomCharS)
         {
-            //if og alt sånt der, vi må finne ut av kode som genererer dette med en random og litt sånt og en string med hele alfabetet og velge random posisjon ut derfra.
-            string alphabet = "A B C D E F G H I K L M N O P Q R S T V X Y Z";
-            var rand = new Random();
-            char randomChar = Convert.ToString(alphabet[rand])
-            return 'l';
+            int randomNumber = Rnd.Next(0,RandomCharS.Length);
+            char returnedChar = RandomCharS[randomNumber];
+            return returnedChar;
         }
-
+        //--------------------------------------------------
+        //for L
+        public static char MetodeForL(Random Rnd, char[] RandomCharL)
+        {
+            int randomNumber = Rnd.Next(0, RandomCharL.Length);
+            char returnedChar = RandomCharL[randomNumber];
+            return returnedChar;
+        }
+        //--------------------------------------------------
+        //for s
+        public static string MetodeFors(Random Rnd, string[] RandomSpecial)
+        {
+            int randomNumber = Rnd.Next(0, RandomSpecial.Length);
+            string returnedString = RandomSpecial[randomNumber];
+            return returnedString;
+        }
+        //--------------------------------------------------
+        //for d
+        public static string MetodeFord(Random Rnd, int[] randomInt)
+        {
+            int randomNumber = Rnd.Next(0, randomInt.Length);
+            string returnedString = randomInt[randomNumber].ToString();
+            return returnedString;
+        }
 
         private static void promptForUser()
         {
@@ -117,7 +155,7 @@ namespace passordgenerator
 
         private static bool isArgsCriteriaFulfilled(string[] args)
         {
-            //Denne sjekke om kriteriene er fylt eller ikke, dvs om det andre argumentet(args[1]) inneholder disse bokstavene eller ikke.
+            //Denne sjekker om kriteriene er fylt eller ikke, dvs om det andre argumentet(args[1]) inneholder disse bokstavene eller ikke.
             //Den returnerer true om alt stemmer, ellers er det false og den kjører print error.
             //(det som er sendt inn med kommandolinjeparameter)
             if (!args[1].Contains("l") || !args[1].Contains("L") || !args[1].Contains("d") || !args[1].Contains("s"))
@@ -188,7 +226,10 @@ namespace passordgenerator
             Console.WriteLine("Min. 1 upper case");
             Console.WriteLine("Min. 2 special characters");
             Console.WriteLine("Min. 2 digits");
+            Console.WriteLine("---- This is an error message.");
         }
+
+
     }
 }
 
