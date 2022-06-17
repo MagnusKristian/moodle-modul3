@@ -5,6 +5,7 @@ namespace passordgenerator
 {
     internal class Program
     {
+        static readonly Random Random = new Random();
         static void Main(string[] args)
         {
             //PARAMETER: 14, lLssdd
@@ -52,6 +53,29 @@ namespace passordgenerator
 
             while (pattern.Length >=1)
             {
+                var randomIndex = Random.Next(0, pattern.Length-1);
+                var category = pattern[randomIndex];
+
+                pattern = pattern.Substring(0, randomIndex) +
+                          pattern.Substring(randomIndex + 1, pattern.Length - randomIndex - 1);
+                if (category == 'l')
+                {
+                    password += MetodeForl(rnd, randomCharS);
+                }
+                if (category == 'L')
+                {
+                    password += MetodeForL(rnd, randomCharL);
+                }
+                if (category == 's')
+                {
+                    password += MetodeFors(rnd, randomSpecial);
+                }
+                if (category == 'd')
+                {
+                    password += MetodeFord(rnd, randomInt);
+                }
+
+                //pattern.Remove(pattern.Length-1, 1);
                 /*
                  * Lag en while-løkke som kjører så lenge pattern sin lengde er 1 eller høyere.
                  * Inne i løkken fjerner du siste tegn, og basert på dette kaller du en av de følgende metodene:
@@ -67,9 +91,9 @@ namespace passordgenerator
             Console.WriteLine("-----------");
             Console.WriteLine("Here is your password: ");
             Console.WriteLine();
-            SetPasswordForEachArg(args, password, rnd, randomCharS, randomCharL, randomSpecial, randomInt, convertedArgument1); //denne er det som faktisk setter passordet osv.
+            //SetPasswordForEachArg(args, password, rnd, randomCharS, randomCharL, randomSpecial, randomInt, convertedArgument1); //denne er det som faktisk setter passordet osv.
             
-            
+            Console.WriteLine(password);
         }
 
 
