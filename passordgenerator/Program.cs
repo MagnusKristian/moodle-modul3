@@ -14,7 +14,7 @@ namespace passordgenerator
             //pattern på kommandolinjeparameter.
             string pattern = args[1];
             pattern = pattern.PadRight(convertedArgument1, 'l');
-            Console.WriteLine(pattern);
+            Console.WriteLine("PATTERN: "+pattern);
             Console.WriteLine("-------");
 
 
@@ -39,6 +39,30 @@ namespace passordgenerator
                 printError();
                 Console.WriteLine("Fail...");
             }
+
+
+            /*
+            //dette er sånn det skal være.-?
+            if (!isValid(args))
+            {
+                promptForUser();
+                return;
+            }
+            */
+
+            while (pattern.Length >=1)
+            {
+                /*
+                 * Lag en while-løkke som kjører så lenge pattern sin lengde er 1 eller høyere.
+                 * Inne i løkken fjerner du siste tegn, og basert på dette kaller du en av de følgende metodene:
+                 * WriteRandomLowerCaseLetter(), WriteRandomUpperCaseLetter(), WriteRandomDigit() og WriteRandomSpecialCharacter().
+                 * Lag en enkel versjon av hver av dem som bare skriver ut et hardkodet tegn (f.eks. 'x', 'Z', '5', '!')
+                 */
+            }
+
+
+
+
             promptForUser(); //Denne printer ut til konsollen "InfoTeksten".
             Console.WriteLine("-----------");
             Console.WriteLine("Here is your password: ");
