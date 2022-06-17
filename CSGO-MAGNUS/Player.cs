@@ -12,7 +12,7 @@ namespace CSGO_MAGNUS
         public bool IsDead { get; set; }
         public static int SuccessRateCT = 5;
         public static int SuccessRateT = 5;
-        public static bool BombIsPlanted = false;
+        public static bool BombIsPlanted = false; // <-- Game
         public Guid Id { get; set; }
 
         public Player()

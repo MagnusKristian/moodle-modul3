@@ -8,22 +8,32 @@ namespace Bossfight
         static void Main(string[] args)
         {
             var random = new Random();
-            Console.WriteLine("Hello World!");
-            var Hero = new GameCharacter("Hero",100,20,40);
-            var Boss = new GameCharacter("Boss",400,10,10);
-
-            List<GameCharacter> players = new List<GameCharacter>();
-            players.Add(Hero);
-            players.Add(Boss);
-            int playerTurn = 1;
-            int mod;
-
-            while (true)
+            var hero = new GameCharacter("Hero",100,20,40);
+            var boss = new GameCharacter("Boss", 400, random.Next(0, 31), 10);
+            bool gameRunning = true;
+            var players = new List<GameCharacter>();
+            players.Add(hero);
+            players.Add(boss);
+            int turn = 0;
+            int opp = 1;
+            while (gameRunning)
             {
-                
-                playerTurn++;
-                players[mod]
+                if (turn > 1) { turn = 0;}
+                if (turn == 1) { opp = 0; }
+                if (turn == 0) { opp = 1; }
+                players[turn].Fight(players[opp]);
+                turn++;
+
+                if(hero.Health <=0) {
+                    Console.WriteLine($"GAME OVER! Boss won.");
+                    gameRunning = false;
+                }
+                if (boss.Health <= 0) { 
+                    Console.WriteLine($"GAME OVER! Hero won.");
+                    gameRunning = false;
+                }
             }
+
         }
     }
 }

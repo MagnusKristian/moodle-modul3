@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSGO
 {
-    internal class Player: Game
+    internal class Player
     {
         public bool IsDead { get; set; }
         public int SuccessRate = 5;

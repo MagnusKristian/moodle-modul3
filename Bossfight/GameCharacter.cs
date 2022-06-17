@@ -12,22 +12,34 @@ namespace Bossfight
         public int Health { get; set; }
         public int Strength { get; set; }
         public int Stamina { get; set; }
+        public int MaxStamina { get; set; }
 
-        public GameCharacter(string _name, int _health, int _strength, int _stamina)
+        public GameCharacter(string name, int health, int strength, int maxStamina)
         {
-            Name = _name;
-            Health = _health;
-            Strength = _strength;
-            Stamina = _stamina;
+            Name = name;
+            Health = health;
+            Strength = strength;
+            MaxStamina = maxStamina;
+            Stamina = MaxStamina;
         }
 
-        public void Fight()
+        public void Fight(GameCharacter opponent)
         {
-            Console.WriteLine($"{Name} attacks, giving {Strength} damage, leaving opponent with {Health-Strength} HP.");
+            if (Stamina <= 0)
+            {
+                Recharge();
+                return;
+            }
+            opponent.Health -= this.Strength;
+            this.Stamina -= 10;
+            Console.WriteLine($"{this.Name} attacks {opponent.Name}, dealing {this.Strength} damage, leaving opponent with {opponent.Health} HP.");
+            
         }
         public void Recharge()
         {
-
+            Console.WriteLine($"{this.Name}'s stamina is {Stamina}.");
+            Stamina = MaxStamina;
+            Console.WriteLine($"{this.Name}'s stamina is recharging... Stamina is now {this.Stamina}");
         }
     }
 }
