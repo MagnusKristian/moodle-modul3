@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace SchoolProject
 {
-    internal class Student
+    internal class Student: Person
+
     {
+        public string backpack;
+
+        public Student( int age,string name, string gender) : base( age,name, gender)
+        {
+            
+        }
+        public void RaiseHand()
+        {
+
+        }
     }
 }
