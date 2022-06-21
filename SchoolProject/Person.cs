@@ -20,7 +20,7 @@ namespace SchoolProject
         }
 
         public void Talk()
-        {
+        {   
             Console.WriteLine("'Talk'");
         }
     }
