@@ -1,0 +1,35 @@
+﻿HVA SKAL DETTE VÆRE?
+
+Oppgave:	Tenk videregående skole. Lærer, elev, klasse og fag. **** Lag en applikasjon for påmelding av elev til kurs. ****
+
+Hver klasse har en lærer. Hvert fag har ukentlige timer - inkl. hvilket rom. Lag kode som kan produsere timeplan for en elev og for en lærer.
+Lag lister over elev for hvert fag - og for hver klasse. Noen fag er felles for en klasse - andre fag har elever fra forskjellige klasser. 
+
+Algoritmisk ekstrautfordring - Level 10 - lag et system som foreslår timeplan som er mulig ut fra tilgjengelige rom og lærere og elever. 
+(Kun et fag kan være i et rom på et gitt tidspunkt. En elev kan bare vært i et fag på et gitt tidspunkt på timeplanen. )
+
+SKOLE.... 
+
+1. 
+
+2.
+
+3.
+
+
+Skole: string Navn, int AntallLærere, int AntallElever, List Lærere, List Rom, List Kurs, List Klasse.
+Rom: string Navn, int Plasser(i rommet typ antall elever det er plass til), int RomNummer(id).
+Lærere:string Navn, List Fag en lærer kan ha, int LærerId.
+Klasse: string Navn, Set en lærer fra lærerlista, List Elever i klassen(Laget fra Elev(class)).
+
+Fag: string Navn, int antallTimerIUka, int fagId.
+Elev: Navn, Id, Klassenavn(hentet fra klassen eleven er i), kursnavn(hentet fra kurset eleven er i).
+
+
+
+
+liste med elever fra klasse A, klasse B, klasse C
+
+liste for hvert fag med hvilke elever som tilhører.
+
+en timeplan for lærer + en timeplan for elev
