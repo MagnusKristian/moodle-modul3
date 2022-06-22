@@ -6,7 +6,6 @@
         {
             var Vendingmachine = new MachineOne();
 
-            
 
         }
     }

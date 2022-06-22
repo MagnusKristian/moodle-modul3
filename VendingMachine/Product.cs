@@ -26,5 +26,6 @@ namespace VendingMachine
             Console.WriteLine($"Name: {Name}. Id:{Id}. Price:{Price}. Inventory:{Inventory}");
         }
         
+
     }
 }
